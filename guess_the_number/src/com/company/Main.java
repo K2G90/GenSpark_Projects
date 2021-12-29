@@ -11,10 +11,21 @@ public class Main {
         System.out.println("Well alright " + userName + ", I am thinking of a number between 1 and 20.");
         System.out.print("Do you think you can guess it?");
 
+//
         Scanner inputTwo = new Scanner(System.in);
         String numberGuess = inputTwo.nextLine();
+        int guess = Integer.parseInt(numberGuess);
 
+        int ranNum = (int)(Math.random() * 20 + 1); //calculates random number between 1 and 20
 
-        if(Integer.parseInt(numberGuess) == )
+        if(guess == ranNum){
+            System.out.println("Good Job " + userName + "! You guessed correctly!" );
+        }
+        else if(guess < ranNum){
+            System.out.println("Dang it!, you guessed too low. Try again");
+        }
+        else if(guess > ranNum){
+            System.out.println("Whoa! You guessed a tad bit too high. Try again.");
+        }
     }
 }
