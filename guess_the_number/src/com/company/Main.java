@@ -22,6 +22,8 @@ public class Main {
 
         if (guess == ranNum) {
             System.out.println("Good Job " + userName + "! You guessed correctly!");
+            System.out.println("Care to have another go?");
+
         } else if (guess < ranNum) {
             System.out.println("Dang it!, you guessed too low. Try again");
             tries--;
@@ -30,8 +32,8 @@ public class Main {
             tries--;
 
         }
-    } while {
+    } while((guess!=ranNum) && (tries > 0));
 
-        }
+
     }
 }
