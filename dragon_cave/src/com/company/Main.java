@@ -16,11 +16,14 @@ public class Main {
         System.out.println("You have chosen path: " + inPut); //Displays the option user chose.
 
         switch (inPut) {
+
             case "1" -> System.out.println("Hey there!, you want to be my friend and share my treasures?!");
-            case "2" -> {System.out.println("You approach the case...");
-                        System.out.println("It is dark and spooky...");
-                        System.out.println("A large dragon jumps out in front of you! He open his jaws and...");
-                        System.out.println("Gobbles you down in one bite!");
+            case "2" -> {
+                System.out.println("You approach the case...");
+                System.out.println("It is dark and spooky...");
+                System.out.println("A large dragon jumps out in front of you! He open his jaws and...");
+                System.out.println("Gobbles you down in one bite!");
             }
         }
     }
+}
