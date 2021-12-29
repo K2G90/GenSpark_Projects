@@ -26,7 +26,7 @@ public class Main {
                 }
                 default -> throw new Exception();
             }
-        } catch(Exception e) {
+        } catch(Exception e) { // Catches an exception if user chooses wrong or not at all
                 if(inPut.equals("")) System.out.println("Please choose an option!");
                 else System.out.println("Please choose Path 1 or 2.");
             }
