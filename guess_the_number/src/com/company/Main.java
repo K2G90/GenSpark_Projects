@@ -30,44 +30,33 @@ public class Main {
         while(tries > 0){
             int ranNum = (int)(Math.random() * 20 + 1); //calculates random number between 1 and 20
             String numberGuess = input.nextLine();
-            int guess = Integer.parseInt(numberGuess);
-            try{
-                if(guess.equals("")) throw new Excpetion();
-            } catch(Exception e){
-                System.out.println("You entered a blank guess");
-            }
-            try{
-                if ((guess < 1) || (guess > 20)) {
-                    System.out.println("You are out of range ! Please choose a number between 1 & 20");
+            try {
+                try {
+                    if (guess.equals("")) throw new Excpetion();
+                } catch (Exception e) {
+                    System.out.println("You entered a blank guess");
+                    continue; //continues the while loop instead breaking.
                 }
+                int guess = Integer.parseInt(numberGuess);
 
-                else if (guess == ranNum) {
-                    System.out.println("Good Job " + userName + "! You guessed correctly with" + tries + " guesses left!");
-                    tries = 0;
-                    break;
+                switch() {
+                    case "hi":
+                        System.out.println("Whoa! You guessed a tad bit too high. Try again.");
+                        tries--;
 
-                } else if (guess < ranNum) {
-                    System.out.println("Dang it!, you guessed too low. Try again");
-                    tries--;
+                    case "correct":
+                        System.out.println("Good Job " + userName + "! You guessed correctly with" + tries + " guesses left!");
+                        tries = 0;
+                        break;
 
-                } else if (guess > ranNum) {
-                    System.out.println("Whoa! You guessed a tad bit too high. Try again.");
-                    tries--;
-                }
-
-
-
-               else {
-                   throw new Exception();
+                    case "low":
+                        System.out.println("Dang it!, you guessed too low. Try again");
+                        tries--;
                 }
             }
-
-            catch(Exception e) {
-                System.out.println("Please choose a between 1 & 20!");
-
+            catch(Exception e){
+                System.out.println("Sorry that was an invalid guess.");
             }
-
-
 
         }
         System.out.println("Care to have another go? (y or n)");
