@@ -2,8 +2,9 @@ package com.company;
 import java.util.Scanner;  //brings in Scanner class to be used as an input method
 
 
- class Helper {
-    public static String Guess(int guess, int ranDumb) {
+  class Helper {
+
+      public static String Guess(int guess, int ranDumb) {
         String result;
         if (guess < 1 || guess > 20) result = "outOfRange";
         else if (guess > ranDumb) result = "hi";
