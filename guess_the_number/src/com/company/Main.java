@@ -1,22 +1,33 @@
 package com.company;
 import java.util.Scanner;  //brings in Scanner class to be used as an input method
 
+
+ class Helper {
+    public static String Guess(int guess, int ranDumb) {
+        String result;
+        if (guess < 1 || guess > 20) result = "outOfRange";
+        else if (guess > ranDumb) result = "hi";
+        else if (guess < ranDumb) result = "low";
+        else result = "correct";
+        return result;
+    }
+    public static int randomNumber(){
+        return (int)(Math.random() * 20 + 1);
+    }
+}
 public class Main {
 
     public static void main(String[] args) {
         int tries = 6;
+        int randy = Helper.randomNumber();
+
         System.out.println("Yo what's up? What's your name?");
         Scanner input = new Scanner(System.in);
         String userName = input.nextLine();
 
         try {
-            if(userName == "") {
-                    throw new Exception();
-            } else{
-                System.out.println("Hello " + userName + ", you ready to play?");
-
-            }
-
+            if(userName.equals("")) throw new Exception();
+            else System.out.println("Hello " + userName + ", you ready to play?");
         }
         catch(Exception e){
             System.out.println("Please provide your name.");
@@ -28,30 +39,35 @@ public class Main {
         System.out.print("Do you think you can guess it?");
 
         while(tries > 0){
-            int ranNum = (int)(Math.random() * 20 + 1); //calculates random number between 1 and 20
+
             String numberGuess = input.nextLine();
             try {
                 try {
-                    if (guess.equals("")) throw new Excpetion();
+                    if (numberGuess.equals("")) throw new Exception();
                 } catch (Exception e) {
                     System.out.println("You entered a blank guess");
-                    continue; //continues the while loop instead breaking.
+                    continue; //continues the iteration of the loop.
                 }
                 int guess = Integer.parseInt(numberGuess);
 
-                switch() {
-                    case "hi":
-                        System.out.println("Whoa! You guessed a tad bit too high. Try again.");
-                        tries--;
-
+                switch(Helper.Guess(guess, randy)) {
                     case "correct":
-                        System.out.println("Good Job " + userName + "! You guessed correctly with" + tries + " guesses left!");
+                        System.out.printf("Good Job  %s !\n You guessed correctly with %s guesses left!%n%n", userName, tries);
                         tries = 0;
                         break;
 
-                    case "low":
-                        System.out.println("Dang it!, you guessed too low. Try again");
+                    case "hi":
                         tries--;
+                        System.out.println("Whoa! You guessed a tad bit too high. Try again.");
+                        break;
+
+                    case "low":
+                        tries--;
+                        System.out.println("Dang it!, you guessed too low. Try again");
+                        break;
+
+                        case "outOfRange":
+                            System.out.println("Sorry that was an invalid guess.");
                 }
             }
             catch(Exception e){
