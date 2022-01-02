@@ -31,9 +31,17 @@ public class Main {
             int ranNum = (int)(Math.random() * 20 + 1); //calculates random number between 1 and 20
             String numberGuess = input.nextLine();
             int guess = Integer.parseInt(numberGuess);
-
             try{
-                if (guess == ranNum) {
+                if(guess.equals("")) throw new Excpetion();
+            } catch(Exception e){
+                System.out.println("You entered a blank guess");
+            }
+            try{
+                if ((guess < 1) || (guess > 20)) {
+                    System.out.println("You are out of range ! Please choose a number between 1 & 20");
+                }
+
+                else if (guess == ranNum) {
                     System.out.println("Good Job " + userName + "! You guessed correctly with" + tries + " guesses left!");
                     tries = 0;
                     break;
@@ -48,14 +56,13 @@ public class Main {
                 }
 
 
-               else if ((guess < 1) || (guess > 20)){
-                    System.out.println("You are out of range ! Please choose a number between 1 & 20");
-                }
-               else{
+
+               else {
                    throw new Exception();
                 }
             }
-            catch(Exception e){
+
+            catch(Exception e) {
                 System.out.println("Please choose a between 1 & 20!");
 
             }
