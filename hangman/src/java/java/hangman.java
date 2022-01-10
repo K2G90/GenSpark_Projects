@@ -21,7 +21,7 @@ public class hangman {
             return "not an option";
         }
     }
-    public static void drawHangman(int l) {
+    public static void drawHangman(int l) { // Draws out the stick figure as player guesses incorrectly.
         if(l == 6) {
             System.out.println("|----------");
             System.out.println("|");
@@ -87,9 +87,11 @@ public class hangman {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        File dictionary = new File("hangman/src/java/java/dictionary.txt");
+    public static void main(String[] args) throws Exception { // possible errors when reading text file
+        File dictionary = new File("hangman/src/java/java/dictionary.txt"); // creates a list of words to utilize in the game.
         Scanner textScanner = new Scanner(dictionary);
+        Scanner input = new Scanner(System.in);
+
 
         int randomChoice = getRandomNumber();
         String randomGuess = getRandomWord(randomChoice);
