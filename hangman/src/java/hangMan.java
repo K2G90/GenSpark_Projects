@@ -31,9 +31,15 @@ public class hangMan {
             char[] userAns = new char[letterArr.length];
 
             for (int i = 0; i < letterArr.length; i++){
-                userAns[i] = '?'; //
+                userAns[i] = '?'; //represents answer not found
             }
+            boolean fin = false;
 
+            while(fin == false){
+                System.out.println("*********************");
+
+                String guess = userInput.next();
+            }
             System.out.println(letterArr);
         }
 
