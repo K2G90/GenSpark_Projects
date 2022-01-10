@@ -104,7 +104,6 @@ public class hangMan {
             int livesCount = 6;
             while(fin == false){
                 System.out.println("*********************");
-
                 String guess = userInput.next();
 
 //                checks validity input
@@ -142,31 +141,31 @@ public class hangMan {
                 }
 
                 if(livesCount <= 0){
-                    System.out.println("Aww man, You are dead! Try again!");
+                    System.out.println("Aww man, You are dead!");
+
+                    System.out.println("Care to have another go? (y or n)");
+                    String response = userInput.nextLine();
+                    try {
+                        switch (response) {
+                            case "y" -> main(args);//restarts the program
+
+                            case "n" -> System.exit(0);//Exits the program.
+                            default -> throw new Exception();
+
+                        }
+                    } catch(Exception e){
+                        System.out.println("Invalid response.");
+                        response = userInput.nextLine();
+                        switch (response) {
+                            case "y" -> main(args);//restarts the program
+
+                            case "n" -> System.exit(0);//Exits the program.
+
+                        }
+                    }
                 }
             }
 
-            System.out.println("Care to have another go? (y or n)");
-        String response = userInput.nextLine();
-        try {
-            switch (response) {
-                case "y" -> main(args);//restarts the program
-
-                case "n" -> System.exit(0);//Exits the program.
-                default -> throw new Exception();
-
-            }
-        }
-            catch(Exception e){
-                System.out.println("Invalid response.");
-                response = userInput.nextLine();
-                switch (response) {
-                    case "y" -> main(args);//restarts the program
-
-                    case "n" -> System.exit(0);//Exits the program.
-
-                }
-            }
         }
 
     }
