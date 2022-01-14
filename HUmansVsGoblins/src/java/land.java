@@ -33,8 +33,8 @@ public class land {
 
 
     public String toString(){
-        return "name: " + name
-                + "\n treasure" + ;
+//        return "name: " + name
+//                + "\n treasure" + ;
 
     }
 }
