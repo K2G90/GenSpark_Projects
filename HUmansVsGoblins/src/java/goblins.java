@@ -19,4 +19,9 @@ public class goblins {
     public String main(String[] args){
 
     }
+
+    @Override
+    public String toString(){
+
+    }
 }
