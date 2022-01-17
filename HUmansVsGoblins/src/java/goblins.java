@@ -1,16 +1,16 @@
 package java;
 
 public class goblins {
-    int attack = 20;
     int health = 40;
-
+    int attack = 20;
+    
     //Default constructor
     public goblins() {
     }
 
     public goblins(int attack, int health) {
-        this.attack = attack;
         this.health = health;
+        this.attack = attack;
     }
 
     public int getHealth() {return health;}
